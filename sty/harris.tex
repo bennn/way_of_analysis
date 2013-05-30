@@ -1,0 +1,154 @@
+% ***********************************************************
+% ******************* PHYSICS HEADER ************************
+% ***********************************************************
+% Original:
+% http://www.dfcd.net/articles/latex/latex.html
+% With additions by Harris Karsch
+
+\documentclass[11pt]{article} 
+
+% Basic things
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath} % AMS Math Package
+\usepackage{amsthm} % Theorem Formatting
+\usepackage{amssymb}	% Math symbols such as \mathbb
+\usepackage{amsfonts}
+\usepackage{changepage}
+\usepackage{bm}
+\usepackage[shortlabels]{enumitem}
+\usepackage{graphicx} % Allows for eps images
+\usepackage{multicol} % Allows for multiple columns
+\usepackage[dvips,letterpaper,margin=0.75in,bottom=0.5in]{geometry}
+ % Sets margins and page size
+
+% Extra packages, not installed on all computers
+% comment/uncomment as necessary
+
+\usepackage{tikz}
+%\usetikzlibrary{calc}
+\usepackage{calc}
+\usepackage{cancel}
+%\usepackage{marvosym}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage{calligra}
+
+% Page setup
+\pagestyle{empty} % Removes page numbers
+\makeatletter % Need for anything that contains an @ command 
+\renewcommand{\maketitle} % Redefine maketitle to conserve space
+{ \begingroup \vskip 10pt \begin{center} \large {\bf \@title}
+	\vskip 10pt \large \@author \hskip 20pt \@date \end{center}
+  \vskip 10pt \endgroup \setcounter{footnote}{0} }
+\makeatother % End of region containing @ commands
+\renewcommand{\labelenumi}{(\alph{enumi})} % Use letters for enumerate
+
+% Some not math but still useful commands
+\newcommand{\s}{\textrm{ }}
+\newcommand{\tab}{\hspace{2em}}
+\newcommand{\swapcommands}[2]{\let\temp #1 \let #1 #2 \let #2 \temp}
+
+% Useful math things
+% \DeclareMathOperator{\Sample}{Sample}
+
+% General Math
+\newcommand{\abs}[1]{\left| #1 \right|} % for absolute value
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+\let\baraccent=\= % rename builtin command \= to \baraccent
+\renewcommand{\=}[1]{\stackrel{#1}{=}} % for putting numbers above =
+\newcommand{\ev}[1]{\left\langle #1 \right\rangle} % expected value
+% same as \avg, yes, but I like different names for different contexts
+\newcommand{\units}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\ip}[2]{\left\langle #1, #2 \right\rangle}
+% Note to self - changed^, so might break some old psets.
+\newcommand{\tr}{\textrm{tr}}
+\newcommand{\re}{\textrm{Re}}
+\newcommand{\im}{\textrm{Im}}
+\newcommand{\rep}[1]{\re\left\{#1\right\}}
+\newcommand{\imp}[1]{\im\left\{#1\right\}}
+\newcommand{\sech}{\,\mathrm{sech}} % apparently doesn't exist already?
+\newcommand{\wt}{\w t} % I don't like the space all the time
+\newcommand{\II}{I\!I}
+\newcommand{\oh}{\frac{1}{2}}
+\newcommand{\lb}[2]{\left[ #1, #2\right]} % Lie Bracket
+
+% Vectors
+\let\vaccent=\v % rename builtin command \v{} to \vaccent{}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % for vectors
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}} 
+% for vectors of Greek letters
+\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} % for unit vector
+\newcommand{\cv}[1]{\tilde{\v{#1}}} % complex vector
+\newcommand{\guv}[1]{\uv{\gv{#1}}}
+\newcommand{\grad}[1]{\gv{\nabla} #1} % for gradient
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\gv{\nabla} \cdot #1} % for divergence
+\newcommand{\curl}[1]{\gv{\nabla} \times #1} % for curl
+\newcommand{\del}{\nabla}
+\newcommand{\ihat}{\boldsymbol{\hat{\textbf{\i}}}}
+\newcommand{\jhat}{\boldsymbol{\hat{\textbf{\j}}}}
+\newcommand{\cross}[2]{\left(#1_2 #2_3 - #1_3 #2_2\right)\v{i} -
+  \left(#1_1 #2_3 - #1_3 #2_1\right)\v{j} +
+  \left(#1_1#2_2 - #1_2 #2_1\right)\v{k}}
+
+% Calculus
+\let\underdot=\d % rename builtin command \d{} to \underdot{}
+\renewcommand{\d}[2]{\frac{d #1}{d #2}} % for derivatives
+\newcommand{\dd}[2]{\frac{d^2 #1}{d #2^2}} % for double derivatives
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} 
+% for partial derivatives
+\newcommand{\pdd}[2]{\frac{\partial^2 #1}{\partial #2^2}} 
+% for double partial derivatives
+\newcommand{\pdc}[3]{\left( \frac{\partial #1}{\partial #2}
+ \right)_{#3}} % for thermodynamic partial derivatives
+\newcommand{\intint}{\int\!\!\!\int}
+% To put boundaries on both integrals, do it manually
+\newcommand{\dx}{dx\,} % sometimes looks better with extra room
+\newcommand{\intall}{\int_{-\infty}^{\infty}}
+
+% Names of groups (because I like putting them in math environments)
+\newcommand{\SU}{\textrm{SU}}
+\newcommand{\Sp}{\textrm{Sp}}
+\newcommand{\U}{\textrm{U}}
+\newcommand{\SO}{\textrm{SO}}
+\newcommand{\GL}{\textrm{GL}}
+\newcommand{\SL}{\textrm{SL}}
+
+% Quantum (i.e. Dirac notation)
+\newcommand{\ket}[1]{\left| #1 \right>} % for Dirac bras
+\newcommand{\bra}[1]{\left< #1 \right|} % for Dirac kets
+\newcommand{\braket}[2]{\left< #1 \vphantom{#2} \right|
+ \left.\! #2 \vphantom{#1} \right>} % for Dirac brackets
+\newcommand{\matrixel}[3]{\left< #1 \vphantom{#2#3} \right|
+ #2 \left| #3 \vphantom{#1#2} \right>} % for Dirac matrix elements
+\newcommand{\evon}[2]{\bra{#2} #1 \ket{#2}}
+\newcommand{\h}{\hbar}
+\newcommand{\hoh}{\frac{\hbar}{2}}
+
+% E&M things
+\newcommand{\curlyr}{\textcalligra{r}} % not the real Griffiths one, but close
+\newcommand{\Griffiths}{\textit{Griffiths }}
+\newcommand{\Staelin}{\textit{Staelin}}
+\newcommand{\emf}{\mathcal{E}}
+\newcommand{\w}{\omega}
+\newcommand{\eo}{\epsilon_0}
+\newcommand{\muo}{\mu_0}
+\newcommand{\e}{\epsilon}
+
+% Proof stuff
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}
+\newtheorem*{dfn*}{Definition}
+\theoremstyle{remark}
+\newtheorem*{rmk}{Remark}
+\newcommand{\st}{\textrm{ s.t. }}
+
+
+% ***********************************************************
+% ********************** END HEADER *************************
+% ***********************************************************
