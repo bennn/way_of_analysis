@@ -2,6 +2,7 @@
 \usepackage{amsmath, amssymb, fullpage, listings}
 \begin{document}
 \vspace*{0.1cm}
+
 \section*{\S 3.1}
 \begin{enumerate}
 \item[3.1.3.1]
@@ -156,13 +157,13 @@
   Rows and columns appear as subsequences, so their limits appear in the
   sequence. A definition for the row subsequence selection function, 
   defined in terms of the row number, $r$, where the top row of the matrix
-  is row $r=0$:
-  
-  \[f_r = 1\ \text{when}\ r<0\]
+  is row $r=1$:
 
-    \[f_r(i) = f_{r-1}(1) + r \text{when} i=1\]
+  \[f_r = 1\ \text{when}\ r=0\]
 
-    \[f_r(i) = f_r(i-1) + n + r \text{else}\]
+    \[f_r(i) = f_{r-1}(1) + r - 1\ \text{when}\ i=1\]
+
+    \[f_r(i) = f_r(i-1) + i + r - 1\ \text{else}\ \]
 
   %% What does "all limit points" mean? All row/col limits or all limits 
   %% of matrix entries?
@@ -196,5 +197,78 @@
   Equivalent sequences have the same limit points because they have
   the same behavior at infinity. They are exactly the same for 
   an infinite number of terms. 
+\end{enumerate}
+
+\newpage
+\vspace*{0.1cm}
+\section*{\S 3.2}
+\begin{enumerate}
+\item[3.2.3.1]
+  Let $A=(a, b)$ be the open set and let 
+  $x_1, x_2, \ldots x_n$ be the points removed from $A$,
+  arranged in ascending order. We know that $a<x_1$ and 
+  $x_n < b$, so we can define the new set $A^\prime$ obtained
+  by deleting all the points as the union of open intervals
+  $(a, x_1) \cup (x_2, x_3) \cup \ldots \cup (x_n, b)$. 
+  The union of open intervals is open, thus $A^\prime$ is open.
+
+  The same holds if a countable number of points are removed. 
+  Let $A=\mathbb{R}$ and remove $\mathbb{N}$ from $A$. 
+  Now $A^\prime$ is the union $(-\infty, 1) \cup (1, 2) \cup (2, 3) \ldots$, 
+  which is an open set. 
+\item[]
+\item[3.2.3.2]
+\item[]
+\item[3.2.3.3]
+\item[]
+\item[3.2.3.4]
+  This seems like it follows trivially from the definitions. 
+\item[]
+\item[3.2.3.5]
+  If $A$ is a closed set, $x$ is a point in $A$, and $B = A - \{ x \}$, 
+  then $B$ is closed when $x$ is not a limit point of $A$. Why?
+  Because $B$ will then contain all its limit points, just like $A$
+  did, making it a closed set. 
+\item[]
+\item[3.2.3.6]
+\item[]
+\item[3.2.3.7]
+\item[]
+\item[3.2.3.8]
+\item[]
+\item[3.2.3.9]
+\item[]
+\item[3.2.3.10]
+\item[]
+\item[3.2.3.11]
+\item[]
+\item[3.2.3.12]
+\item[]
+\item[3.2.3.13]
+\item[]
+\item[3.2.3.14]
+  The empty set and the universe of all sets are both open and closed 
+  by definition.
+\item[]
+\item[3.2.3.15]
+  Let $\bigcup \mathcal{A}$ be a union of open intervals. 
+  Replace every pair of intersecting intervals $(a, b), (c, d) \in \mathcal{A}$
+  by the interval $(min(a, c), max(b, d))$. 
+  What's left is to prove that this is really equivalent. % TODO
+\item[]
+\item[3.2.3.16]
+  Let $\bigcup \mathcal{A}$ and $\bigcup \mathcal{B}$ be two ways of
+  describing the same open set. Let $(a_1, a_2)$ and $(b_1, b_2)$
+  be the intervals in 
+  $\mathcal{A}$ and $\mathcal{B}$, respectively,
+  with the smallest first element. 
+  Now $a_1 \le b_1$, otherwise $(b_1, b_2)$ would include the limit $a_1$.
+  Likewise $b_1 \le a_1$ because 
+  otherwise $(a_1, a_2)$ would include $b_1$. Hence $a_1 = b_1$. 
+  A similar argument holds for $a_2$ and $b_2$, so the intervals 
+  must be the same. Removing these smallest intervals and applying the
+  same argument inductively, we see that $\mathcal{A}$ must be the 
+  same set as $\mathcal{B}$.
+\item[]
 \end{enumerate}
 \end{document}
