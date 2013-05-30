@@ -1,0 +1,200 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, fullpage, listings}
+\begin{document}
+\vspace*{0.1cm}
+\section*{\S 3.1}
+\begin{enumerate}
+\item[3.1.3.1]
+  \begin{enumerate}
+  \item
+    %% 0, 1.5, -.66, 1.25, -.8, ...
+    \begin{description}
+    \item[sup]
+      1.5
+    \item[inf]
+      -1
+    \item[limsup]
+      1
+    \item[liminf]
+      -1
+    \item[limits]
+      1, -1
+    \end{description}
+  \item
+    \begin{description}
+    \item[sup]
+      $\frac{3}{2}$
+    \item[inf]
+      0
+    \item[limsup]
+      1
+    \item[liminf]
+      1
+    \item[limits]
+      1
+    \end{description}
+  \item
+    \begin{description}
+    \item[sup]
+      2
+    \item[inf]
+      -3
+    \item[limsup]
+      1
+    \item[liminf]
+      -3
+    \item[limits]
+      -3, 1
+    \end{description}
+  \end{enumerate}
+\item[]
+\item[3.1.3.2]
+  No, the sequences don't necessarily converge. 
+  Example: $\{y_n\} = .9, .99, .999, \ldots$ 
+  $\{z_n\} = -.9, -.99, -.999, \ldots$ 
+
+  Bounding the sequences doesn't help. My example sequences are bounded. 
+  Yeah, I can't even think of an example where $\{y_n\}$ and $\{z_n\}$ are
+  \emph{unbounded} but the sequence $x_n = y_n + z_n$ \emph{is} bounded.
+  %% Harris help ^
+\item[]
+\item[3.1.3.3]
+  $y_n$ is an upper bound for $E$ because it is the limit of upper bounds. 
+  $y_n$ is the least upper bound because it is the limit of elements $x_n$
+        of $E$.
+\item[]
+\item[3.1.3.4]
+  The union takes elements from both sets, so the suprenam can only increase. 
+  The intersection only removes elements. If $sup(B) > sup(A)$, then we
+  know that $sup(B) \not\in A$ and therefore $sup(B) \not\in A \cap B$.
+\item[]
+\item[3.1.3.5]
+  %% I don't understand this one. 
+  %% Doesn't this inequality fail for:
+  %%  x_n = 1, 1, 1, \ldots
+  %%  y_n = -10, -10, \ldots
+  %% Because the limsup of the shuffled sequence is 1, 
+  %% which is less than the sum of the limsups of x_n \& y_n, which are
+  %% 1 and -10, respectively. 
+
+  TODO prove first part.
+
+  Equality does not hold for $x_n = 1, 1, 1, \ldots$
+  and $y_n = 1, 1, 1, \ldots$. 
+  Each has a limsup of 1, and so does their shuffled sequence. 
+  Hence $limsup\{ x_n + y_n \} < limsup\{ x_n \} + limsup\{ y_n \} \rightarrow
+  1 < 1 + 1$.
+
+\item[]
+\item[3.1.3.6]
+  Yes. 
+  %% Every elements of sub-sub-sequence $\{x^{\prime\prime}_n\}$
+  %% is an element of subsequence $\{x^{\prime}_n}$; in turn, every element
+  %% of $\{x^\prime_n\}$ is an element of $\{x_n\}$. Thus 
+  Members of the subsubsequence are members of the parent sequence,
+  so one can define a subsequence selection function to extract it from
+  the parent sequence. 
+ \item[]
+\item[3.1.3.7]
+  Create two infinite matrices:
+\item[]
+  \begin{tabular}{ c c c c c}
+   0 & 1 & 2 & 3 & \ldots \\
+   0 & 1 & 2 & 3 & \ldots \\
+   0 & 1 & 2 & 3 & \ldots \\
+   0 & 1 & 2 & 3 & \ldots \\
+   \vdots & \vdots & \vdots & \\
+  \end{tabular}
+  \begin{tabular}{ c c c c}
+  -1 & -2 & -3 & \ldots \\
+  -1 & -2 & -3 & \ldots \\
+  -1 & -2 & -3 & \ldots \\
+  -1 & -2 & -3 & \ldots \\
+   \vdots & \vdots & \vdots & \\
+  \end{tabular}
+
+  Diagonialize each and shuffle those resulting sequences. 
+  Now we have a sequence in which each integer appears an infinite
+  number of times. 
+\item[]
+\item[3.1.3.8]
+  $\Rightarrow$: Limits of subsequences are limits of the sequence. 
+
+  $\Leftarrow$: Choose the sequence itself as a subsequence.
+    (Or delete a finite number of elements.)
+\item[]
+\item[3.1.3.9]
+  Yes. Create another matrix and diagonalize it. The liminf is zero.
+\item[]
+  \begin{tabular}{c c c c}
+   1 & $\frac{1}{2}$ & $\frac{1}{3}$ & \ldots \\
+   1 & $\frac{1}{2}$ & $\frac{1}{3}$ & \ldots \\
+   1 & $\frac{1}{2}$ & $\frac{1}{3}$ & \ldots \\
+   1 & $\frac{1}{2}$ & $\frac{1}{3}$ & \ldots \\
+   \vdots & \vdots & \vdots & \\
+  \end{tabular} 
+\item[]
+\item[3.1.3.10]
+  Limits of subsequences are limits of sequences. If an infinite
+  number of terms in a subsequence approach a limit point, then it 
+  follows that an infinite number of terms in the sequence approach the
+  same limit. They're the same terms!
+
+  Sequences have no limits that do not belong to their subsequences. 
+  Assume, for contradiction, that the sequence $x_n = y_n + z_n$ has 
+  a limit point $l$ such that neither an infinite number of terms 
+  of $y_n$ nor an infinite number of terms of $z_n$ approach $l$. 
+  In other words, no more than a finite number of $y\in y_n$ and 
+  $z \in z_n$ approximate the limit. Then only finitely many $x\in x_n$
+  could possibly approach $l$, a contradiction.
+
+  Shuffling doesn't matter. The order in which subsequence terms appear
+  in the final sequence has no bearing on whether an infinite number of 
+  sequence terms fall within some epsilon of a limit.
+\item[]
+\item[3.1.3.11]
+  Rows and columns appear as subsequences, so their limits appear in the
+  sequence. A definition for the row subsequence selection function, 
+  defined in terms of the row number, $r$, where the top row of the matrix
+  is row $r=0$:
+  
+  \[f_r = 1\ \text{when}\ r<0\]
+
+    \[f_r(i) = f_{r-1}(1) + r \text{when} i=1\]
+
+    \[f_r(i) = f_r(i-1) + n + r \text{else}\]
+
+  %% What does "all limit points" mean? All row/col limits or all limits 
+  %% of matrix entries?
+  Yes, one necessarily gets all limit points in this way. 
+  All the matrix terms appear in the sequence. How could you not?
+
+  
+  %% Here are OCaml implementations of the row subsequence selection 
+  %% function. The function assumes a predefined stream type. 
+  %% I'm not sure how to express this mathematically.
+  %% \begin{lstlisting}
+  %% let row_subsequence row_num = 
+  %%   let offset = ref 1 in
+  %%   let rec row prev_index = 
+  %%     incr(offset);
+  %%     let next_index = prev_index + !offset in
+  %%     Cons(next_index, fun () -> row next_index)
+  %%   in Cons(row_num, fun () -> row row_num)
+  %% \end{lstlisting}
+\item[]
+\item[3.1.3.12]
+  Reflexivity \& symmetry are easy. Any sequence differs from 
+  itself in finitely many (i.e. zero) terms, and if $x$ differs from 
+  $y$ in $n$ terms then obviously $y$ and $x$ will be identical after $n$
+  terms. 
+  For transitivity, say $x$ and $y$ differ by $n$ terms and $y$ and $z$
+  differ by $m$ terms. Then $x$ and $z$ differ by $max(n,m)$ terms. 
+  If $z$ is  the same sequence as $y$ after a finite number of steps
+  then it's obviously also identical to $x$ after finitely many steps. 
+
+  Equivalent sequences have the same limit points because they have
+  the same behavior at infinity. They are exactly the same for 
+  an infinite number of terms. 
+\end{enumerate}
+\end{document}
