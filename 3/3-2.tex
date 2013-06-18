@@ -1,0 +1,88 @@
+\newpage
+\vspace*{0.1cm}
+\section*{\S 3.2}
+\begin{enumerate}
+\item[3.2.3.1]
+  Let $A=(a, b)$ be the open set and let 
+  $x_1, x_2, \ldots x_n$ be the points removed from $A$,
+  arranged in ascending order. 
+  % We know that $a<x_1$ and 
+  % $x_n < b$, so we can 
+  Define the new set $A^\prime$ obtained
+  after deleting all the points as the union of open intervals
+  $(a, x_1) \cup (x_2, x_3) \cup \ldots \cup (x_n, b)$. 
+  The union of open intervals is open, thus $A^\prime$ is open.
+
+  The same holds if a countable number of points are removed. 
+  Follow the same procedure. Open sets remain open under arbitrary unions. 
+  % Let $A=\mathbb{R}$ and remove $\mathbb{N}$ from $A$. 
+  % Now $A^\prime$ is the union $(-\infty, 1) \cup (1, 2) \cup (2, 3) \ldots$, 
+  % which is an open set. 
+\item[]
+\item[3.2.3.2]
+  The sequence has strictly more elements than the set. 
+  So if the set has an infinite number of terms approximating a limit, 
+  then for sure the sequence will have those same terms.
+
+  If no point of $A$ occurs more than finitely many times, 
+  then you can take the sequence of points approximating the limit and
+  deduplicate it to obtain a set of infinitely many points 
+  approximating the limit. 
+\item[]
+\item[3.2.3.3]
+  Every point of the set is now a limit. Every neighborhood of a point of $x$
+  contains at least $x$; that's a limit under this new definition.
+\item[]
+\item[3.2.3.4]
+  This seems like it follows trivially from the definitions. 
+\item[]
+\item[3.2.3.5]
+  If $A$ is a closed set, $x$ is a point in $A$, and $B = A - \{ x \}$, 
+  then $B$ is closed when $x$ is not a limit point of $A$. Why?
+  Because $B$ will then contain all its limit points, just like $A$
+  did, making it a closed set. 
+\item[]
+\item[3.2.3.6]
+  
+\item[]
+\item[3.2.3.7]
+  Every point of every open set is a limit point. 
+  There are infinite number of points in each neighborhood of each point.
+\item[]
+\item[3.2.3.8]
+\item[]
+\item[3.2.3.9]
+\item[]
+\item[3.2.3.10]
+\item[]
+\item[3.2.3.11]
+\item[]
+\item[3.2.3.12]
+\item[]
+\item[3.2.3.13]
+\item[]
+\item[3.2.3.14]
+  The empty set and the universe of all sets are both open and closed 
+  by definition.
+\item[]
+\item[3.2.3.15]
+  Let $\bigcup \mathcal{A}$ be a union of open intervals. 
+  Replace every pair of intersecting intervals $(a, b), (c, d) \in \mathcal{A}$
+  by the interval $(min(a, c), max(b, d))$. 
+  % What's left is to prove that this is really equivalent. % TODO
+\item[]
+\item[3.2.3.16]
+  Let $\bigcup \mathcal{A}$ and $\bigcup \mathcal{B}$ be two ways of
+  describing the same open set. Let $(a_1, a_2)$ and $(b_1, b_2)$
+  be the intervals in 
+  $\mathcal{A}$ and $\mathcal{B}$, respectively,
+  with the smallest first element. 
+  Now $a_1 \le b_1$, otherwise $(b_1, b_2)$ would include the limit $a_1$.
+  Likewise $b_1 \le a_1$ because 
+  otherwise $(a_1, a_2)$ would include $b_1$. Hence $a_1 = b_1$. 
+  A similar argument holds for $a_2$ and $b_2$, so the intervals 
+  must be the same. Removing these smallest intervals and applying the
+  same argument inductively, we see that $\mathcal{A}$ must be the 
+  same set as $\mathcal{B}$.
+\item[]
+\end{enumerate}
