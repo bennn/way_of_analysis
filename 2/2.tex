@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{ben}
+\begin{document}
+
+\begin{problems}
+\problem
+  %% Equivalence classes denote real numbers. 
+  %% Assume there's an uncountable number. Then the reals must be countable.
+
+\problem
+  %% If the limit of the sequence is a real number, just add 
+  %% an epsilon to any inveter-valued numbers in the sequence. 
+  %% If the limit is an integer, then perturb the numbers. 
+  %% change every x_i in the sequence to $x_i - (\frac{1}{10^i})$
+  %% Hell, you could do this no matter what and you'll be fine, I think.
+
+\problem
+  %% Integers are representable by Cauchy sequences of integers
+
+\problem
+  %% If x and y are equivalent Cauchy sequences, they both have 
+  %% integers m_1, m_2 after which they approximate the limit within 
+  %% an epsilon. Let m be the larger of these two numbers. 
+  %% (By the triangle equality?) the shuffled sequence approximates
+  %% the limit within an epsilon as well.
+
+\problem
+  %% Find the index i of last changed term 
+  %% (which exists, only a finite number of changes were made). 
+  %% We have a Cauchy sequence if we proceed from max(i, m), 
+  %% where m is the convergence point of the original sequence
+
+\problem
+  %% Each decimal in the expansion varies less and less from 
+  %% the previous one, converging to the real number. 
+  %% At some point, we'll be within an epsilon. Then the distance from 
+  %% this to every later term is also an epsilon. Yayyy
+
+\problem
+  %% Both approximate the limit (1) within an epsilon after a certain
+  %% number of terms. Depends on the epsilon. 
+  %% I should probably work this proof out. 
+
+\problem
+  %% YES, if the sequences converge to zero
+  %% Caucy sequences are equivalent if, after a finite number of 
+  %% elements, they approximate the same number within some epsilon.
+
+\problem
+  %% So we have that point m, after which all numbers of the sequence are
+  %% within some epsilon of the number. Before that, a bunch of crazy stuff
+  %% could happen. But only finitely crazy stuff. So take the 
+  %% largest number that appears in the first m terms of the sequence,
+  %% add at least an epsilon to it, and round up to the nearest integer. 
+  %% Now you have a number that's greater than every other number in the
+  %% sequence. 
+  %% (Why add the epsilon? Because with \epsilon = 0.5 you 
+  %% could have the sequence: $.3, .5, .999, 1.5, 1, 1, 1, \ldots
+  %% which approximates the real number 1 after m=2 elements. 
+  %% But the largest of the first two numbers is 0.5, and if you rounded 
+  %% that up you'd get 1, which is definitely smaller than the perfectly 
+  %% valid 1.5 later in the sequence. So add at least an epsilon before you 
+  %% round to ensure you win in the worst case. 
+
+\end{problems}
+\end{document}
